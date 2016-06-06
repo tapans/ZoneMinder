@@ -1421,6 +1421,18 @@ function getDiskPercent() {
   return( $space );
 }
 
+function getCPUTemp()
+{
+    $output = file_get_contents('/sys/class/thermal/thermal_zone0/temp');
+    return( $output );
+}
+
+function getBatteryPercent()
+{
+    $output = file_get_contents('/sys/class/power_supply/battery/capacity');
+    return ( $output );
+}
+
 function getDiskBlocks() {
   $df = shell_exec( 'df '.ZM_DIR_EVENTS );
   $space = -1;
