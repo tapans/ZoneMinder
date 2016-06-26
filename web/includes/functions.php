@@ -1423,8 +1423,8 @@ function getDiskPercent() {
 
 function getCPUTemp()
 {
-    $output = file_get_contents('/sys/class/thermal/thermal_zone0/temp');
-    return( $output );
+    $output = file_get_contents('/sys/devices/platform/sec-thermistor/temperature');
+    return( substr( $output, 0, 2) );
 }
 
 function getBatteryPercent()
